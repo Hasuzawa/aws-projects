@@ -11,7 +11,7 @@ provider "aws" {
   default_tags {
     tags = {
       Managed = "terraform"
-			Project = "01"
+      Project = "01"
     }
   }
 }
