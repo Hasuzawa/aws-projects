@@ -1,16 +1,17 @@
+---
 cicd:
 - any:
-	- changed-files:
-		- any-glob-to-any-file:
-			- ".github/*"
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".github/*"
 aws:
 - any:
-	- changed-files:
-		- any-glob-to-any-file:
-			- "aws/*"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "aws/*"
 doc:
 - any:
-	- changed-files:
-		- any-glob-to-any-file:
-			- "**/*.md"
-			- "**/*.doc"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "**/*.md"
+      - "**/*.doc"

@@ -2,5 +2,9 @@ root = true
 indent_style = tab
 indent_size = 4
 
+[*.yml]
+indent_style = space		# yamllint will error tab indentation
+indent_size = 2
+
 [*.tf]		# match the style of `terraform fmt`
 indent_size = 2
