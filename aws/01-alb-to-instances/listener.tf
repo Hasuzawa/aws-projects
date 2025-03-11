@@ -10,7 +10,7 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_lb_listener_rule" "index" {
-  listener_arn = aws_lb.alb.arn
+  listener_arn = aws_lb_listener.http.arn
   priority     = 100
 
   action {
