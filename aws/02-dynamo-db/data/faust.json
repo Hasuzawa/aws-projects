@@ -1,0 +1,6 @@
+{
+	"Id": {"S": "2"},
+	"Name": {"S": "Faust"},
+	"Author": {"S": "Goethe"},
+	"YearPublished": {"N": "1832"}
+}
