@@ -1,0 +1,6 @@
+{
+	"Id": {"S": "3"},
+	"Name": {"S": "Les Misérables"},
+	"Author": {"S": "Victor Hugo"},
+	"YearPublished": {"N": "1862"}
+}

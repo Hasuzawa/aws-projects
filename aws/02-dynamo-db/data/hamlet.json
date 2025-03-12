@@ -1,0 +1,6 @@
+{
+	"Id": {"S": "1"},
+	"Name": {"S": "Hamlet"},
+	"Author": {"S": "Shakespeare"},
+	"YearPublished": {"N": "1603"}
+}
