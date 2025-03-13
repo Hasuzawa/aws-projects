@@ -25,13 +25,6 @@ resource "aws_s3_bucket_website_configuration" "website_config" {
   #   }
 }
 
-resource "aws_s3_bucket_versioning" "public_bucket_versioning" {
-  bucket = aws_s3_bucket.public_bucket.versioning.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
 resource "aws_s3_bucket_ownership_controls" "public_bucket_ownership" {
   bucket = aws_s3_bucket.public_bucket.id
   rule {
