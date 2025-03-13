@@ -7,6 +7,29 @@ Buckets:
 - private bucket with read replication of 1st
 - public bucket with limited ACL access
 
+## CLI
+
+```sh
+# list buckets
+aws s3 ls
+# query objects in a bucket
+aws s3 ls 03-public-bucket
+```
+
+## ACL
+
+by default, bucket blocks all public access while objects inside are accessible by all
+
+## Replication
+
+src -> dest
+
+- source bucket needs versioning enabled
+
+## MFA Delete
+
+In S3 bucket versioning, you can choose to require MFA before deletion.
+
 ## Price
 
 Using data on 2025-03-13 Tokyo region,
