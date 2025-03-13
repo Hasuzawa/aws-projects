@@ -4,10 +4,6 @@ resource "aws_s3_bucket" "public_bucket" {
   force_destroy = false
 }
 
-# resource "aws_s3_bucket" "private_bucket" {
-#   bucket = "${var.project}-public-bucket"
-# }
-
 resource "aws_s3_bucket_website_configuration" "website_config" {
   bucket = aws_s3_bucket.public_bucket.id
 
@@ -18,6 +14,47 @@ resource "aws_s3_bucket_website_configuration" "website_config" {
   error_document {
     key = "404.html"
   }
+
+  #   routing_rule {
+  #     condition {
+
+  #     }
+  #     redirect {
+
+  #     }
+  #   }
+}
+
+resource "aws_s3_bucket_versioning" "public_bucket_versioning" {
+  bucket = aws_s3_bucket.public_bucket.versioning.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_ownership_controls" "public_bucket_ownership" {
+  bucket = aws_s3_bucket.public_bucket.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "public_bucket_access_block" {
+  bucket = aws_s3_bucket.public_bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_acl" "public_bucket_acl" {
+  bucket = aws_s3_bucket.public_bucket.id
+  depends_on = [
+    aws_s3_bucket_ownership_controls.public_bucket_ownership,
+    aws_s3_bucket_public_access_block.public_bucket_access_block
+  ]
+  acl = "public-read"
 }
 
 
