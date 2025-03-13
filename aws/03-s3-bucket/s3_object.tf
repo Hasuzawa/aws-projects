@@ -7,5 +7,6 @@ resource "aws_s3_object" "objects" {
     "product-1" : data.local_file.product1,
     "product-2" : data.local_file.product2,
   }
-  key = each.key
+  key    = each.key
+  source = each.value.filename
 }
