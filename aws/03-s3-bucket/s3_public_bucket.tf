@@ -12,17 +12,18 @@ resource "aws_s3_bucket_website_configuration" "website_config" {
   }
 
   error_document {
-    key = "404.html"
+    key = "error.html"
   }
 
-  #   routing_rule {
-  #     condition {
+  routing_rule {
+    condition {
+      key_prefix_equals = "api/product/"
+    }
 
-  #     }
-  #     redirect {
-
-  #     }
-  #   }
+    redirect { # this will redirect all /api/product/ to query product/ instead
+      replace_key_prefix_with = "product/"
+    }
+  }
 }
 
 resource "aws_s3_bucket_ownership_controls" "public_bucket_ownership" {
@@ -50,15 +51,6 @@ resource "aws_s3_bucket_acl" "public_bucket_acl" {
   acl = "public-read"
 }
 
-
-# resource aws_s3_object object {
-# 	bucket = aws_s3_bucket.bucket.id
-# 	key = ""
-# }
-
-# resource aws_s3_bucket_acl acl {
-# 	bucket = aws_s3_bucket.bucket.id
-
 # }
 # resource aws_s3_lifecycle_configuration lifecycle_config {
 
@@ -70,14 +62,8 @@ resource "aws_s3_bucket_acl" "public_bucket_acl" {
 # 		bucket = aws_s3_bucket.bucket.id
 # 		payer = ""
 # }
+
 # resource aws_s3_bucket_metric metric {
 # 	bucket = aws_s3_bucket.bucket.id
 # 	name = ""
-# }
-# resource aws_s3_bucket_policy policy {
-# 	bucket = aws_s3_bucket.bucket.id
-# 	policy = ""
-# }
-# resource aws_s3_bucket_website_configuration website_config {
-# 	bucket = aws_s3_bucket.bucket.id
 # }

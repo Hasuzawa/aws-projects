@@ -3,10 +3,21 @@ resource "aws_s3_object" "objects" {
 
   for_each = {
     "index.html" : data.local_file.index_page,
-    "404.html" : data.local_file.error_404_page,
-    "product-1" : data.local_file.product1,
-    "product-2" : data.local_file.product2,
+    "error.html" : data.local_file.error_page,
   }
-  key    = each.key
-  source = each.value.filename
+  key          = each.key
+  source       = each.value.filename
+  content_type = "text/html"
+}
+
+resource "aws_s3_object" "json" {
+  bucket = aws_s3_bucket.public_bucket.id
+
+  for_each = {
+    "product/1.json" : data.local_file.product1,
+    "product/2.json" : data.local_file.product2,
+  }
+  key          = each.key
+  source       = each.value.filename
+  content_type = "application/json"
 }
