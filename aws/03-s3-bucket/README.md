@@ -12,8 +12,18 @@ Buckets:
 ```sh
 # list buckets
 aws s3 ls
-# query objects in a bucket
-aws s3 ls 03-public-bucket
+# list objects in a bucket
+aws s3 ls ${bucket}
+# note that unlike Bash ls, glob pattern is not allowed. instead, use --bucket-name-prefix to filter
+aws s3 ls --bucket-name-prefix ${prefix}
+```
+
+Getting object
+```sh
+# download a file in bucket to dest
+aws s3api get-object --bucket ${bucket} --key ${key} ${dest}
+# range query by bytes, useful for large files
+aws s3api get-object --bucket ${bucket} --key ${key} --range bytes=${start}-${end} ${dest}
 ```
 
 ## ACL
@@ -24,7 +34,12 @@ by default, bucket blocks all public access while objects inside are accessible 
 
 src -> dest
 
-- source bucket needs versioning enabled
+- both source and destination bucket needs versioning enabled
+
+
+## Links
+
+since bucket name is globally unique, the s3 url identifies an unique bucket in AWS
 
 ## MFA Delete
 
