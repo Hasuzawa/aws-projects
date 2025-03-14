@@ -2,8 +2,8 @@ data "local_file" "index_page" {
   filename = "./static/index.html"
 }
 
-data "local_file" "error_404_page" {
-  filename = "./static/404.html"
+data "local_file" "error_page" {
+  filename = "./static/error.html"
 }
 
 data "local_file" "product1" {
