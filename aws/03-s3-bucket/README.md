@@ -30,12 +30,27 @@ aws s3api get-object --bucket ${bucket} --key ${key} --range bytes=${start}-${en
 
 by default, bucket blocks all public access while objects inside are accessible by all
 
+To access public read access of s3 bucket objects:
+- bucket access block needs to be disabled
+- bucket policy must allow public s3:Get-Object access
+- bucket object must not deny public access
+
 ## Replication
 
 src -> dest
 
 - both source and destination bucket needs versioning enabled
 
+## Requester Pay
+
+will show a message like this when not logged into AWS
+```
+403 Forbidden
+
+Code: AccessDenied
+
+Message: Requester Pays Enabled.
+```
 
 ## Links
 
