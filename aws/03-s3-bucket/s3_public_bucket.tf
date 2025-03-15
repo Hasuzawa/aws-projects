@@ -44,6 +44,7 @@ resource "aws_s3_bucket_public_access_block" "public_bucket_access_block" {
 
 resource "aws_s3_bucket_acl" "public_bucket_acl" {
   bucket = aws_s3_bucket.public_bucket.id
+
   depends_on = [
     aws_s3_bucket_ownership_controls.public_bucket_ownership,
     aws_s3_bucket_public_access_block.public_bucket_access_block
