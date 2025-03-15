@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "public_bucket" {
   bucket = "${var.project}-public-bucket"
 
-  force_destroy = true
+  force_destroy = true # delete all objects in bucket when deleting bucket
 }
 
 resource "aws_s3_bucket_website_configuration" "website_config" {
