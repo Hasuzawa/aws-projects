@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "public_bucket" {
   bucket = "${var.project}-public-bucket"
 
-  force_destroy = false
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "website_config" {
@@ -51,17 +51,33 @@ resource "aws_s3_bucket_acl" "public_bucket_acl" {
   acl = "public-read"
 }
 
-# }
-# resource aws_s3_lifecycle_configuration lifecycle_config {
+resource "aws_s3_bucket_lifecycle_configuration" "lifecycle_config" {
+  bucket = aws_s3_bucket.public_bucket.id
 
-# }
-# resource aws_s3_bucket_logging logging {
+  rule {
+    id = "change to IA"
 
-# }
-# resource aws_s3_bucket_request_payment_configuration payment_config {
-# 		bucket = aws_s3_bucket.bucket.id
-# 		payer = ""
-# }
+    filter {
+      and {
+        prefix                   = "product/"
+        object_size_greater_than = 128 # default size limit
+      }
+    }
+
+    transition {
+      days          = 30 # min day for IA
+      storage_class = "STANDARD_IA"
+    }
+
+    status = "Enabled"
+  }
+
+}
+
+resource "aws_s3_bucket_request_payment_configuration" "payment_config" {
+  bucket = aws_s3_bucket.public_bucket.id
+  payer  = "BucketOwner" # BucketOwner | Requester
+}
 
 # resource aws_s3_bucket_metric metric {
 # 	bucket = aws_s3_bucket.bucket.id
