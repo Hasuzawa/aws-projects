@@ -39,7 +39,11 @@ To access public read access of s3 bucket objects:
 
 src -> dest
 
+Conditions:
 - both source and destination bucket needs versioning enabled
+- read replication and list bucket policy on source bucket
+- s3:GetObjectVersion___ policy on source bucket
+- s3:Replicate___ policy on destination bucket
 
 ## Requester Pay
 
