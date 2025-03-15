@@ -3,5 +3,5 @@ variable "project" {
 }
 
 variable "project_name" {
-  default = "Project-04"
+  default = "project-04"
 }
