@@ -1,3 +1,7 @@
+locals {
+	cloudtrail_id = "cloudtrail.amazonaws.com"
+}
+
 // allow cloudtrail to write to bucket
 data aws_iam_policy_document cloudtrail {
 	statement {
@@ -5,7 +9,7 @@ data aws_iam_policy_document cloudtrail {
 		effect = "Allow"
 		principals {
 			type = "Service"
-			identifiers = ["cloudtrail.amazonews.com"]
+			identifiers = [local.cloudtrail_id]
 		}
 		actions = ["s3:GetBucketAcl"]
 		resources = [aws_s3_bucket.cloudtrail.arn]
@@ -16,11 +20,11 @@ data aws_iam_policy_document cloudtrail {
 		effect = "Allow"
 		principals {
 			type = "Service"
-			identifiers = ["cloudtrail.amazonews.com"]
+			identifiers = [local.cloudtrail_id]
 		}
 		actions = ["s3:PutObject"]
-		resources = [aws_s3_bucket.cloudtrail.arn]
+		resources = ["${aws_s3_bucket.cloudtrail.arn}/login/*"]
 	}
 }
 
-# for extra safety, you should restrict the source arn to only one cloudtrail
+# for extra safety, you should restrict the source arn to only one cloudtrail, and the bucket resource to one IAM user
