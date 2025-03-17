@@ -68,6 +68,25 @@ a logged event looks like this (sensitive data removed)
 }
 ```
 
+## CloudWatch
+
+monitor AWS platform event, metric, log
+- (metric) alarm
+- dashboard
+- log
+- event
+
+The metric alarm is somewhat similar to Grafana or Splunk
+
+
+### Resource Group
+
+filter some resource to be monitored together
+
+
+
+
+
 ## Note
 
 AWS Lambda is billed for duration, memory usage and time invoked.
