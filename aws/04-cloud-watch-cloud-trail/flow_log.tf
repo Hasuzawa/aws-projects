@@ -1,12 +1,13 @@
+# depending on destination, some options are not available and required permission is also different
 
 resource "aws_flow_log" "vpc_flow_log" {
   vpc_id                   = module.vpc.vpc.id
   traffic_type             = "ALL"
   max_aggregation_interval = 600 # default 600, in seconds
   log_destination          = aws_cloudwatch_log_group.log_group.arn
+  iam_role_arn             = aws_iam_role.flow_log.arn	# allow log stream
 
-  destination_options {
-    file_format        = "plain-text"
-    per_hour_partition = false
+  tags = {
+	Name = "vpc-flow-log"
   }
 }
