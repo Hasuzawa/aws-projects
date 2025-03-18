@@ -3,12 +3,12 @@ cicd:
 - any:
   - changed-files:
     - any-glob-to-any-file:
-      - ".github/*"
+      - ".github/**/*"
 aws:
 - any:
   - changed-files:
     - any-glob-to-any-file:
-      - "aws/*"
+      - "aws/**/*"
 doc:
 - any:
   - changed-files:
