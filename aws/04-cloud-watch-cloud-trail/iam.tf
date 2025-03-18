@@ -28,3 +28,41 @@ data "aws_iam_policy_document" "cloudtrail" {
 }
 
 # for extra safety, you should restrict the source arn to only one cloudtrail, and the bucket resource to one IAM user
+
+// assume role
+data "aws_iam_policy_document" "flow_log" {
+  statement {
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["vpc-flow-logs.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+// for flow log to stream to cloudwatch log group
+resource "aws_iam_role" "flow_log" {
+  name               = "flow-log-to-cloudwatch-log-group"
+  assume_role_policy = data.aws_iam_policy_document.flow_log.json
+}
+
+data "aws_iam_policy_document" "stream_to_log_group" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams"
+    ]
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_role_policy" "attach_log_stream" {
+  name   = "stream-to-log-group"
+  role   = aws_iam_role.flow_log.id
+  policy = data.aws_iam_policy_document.stream_to_log_group.json
+}
