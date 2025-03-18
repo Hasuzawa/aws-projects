@@ -113,4 +113,11 @@ filter some resource to be monitored together
 
 ## Note
 
-AWS Lambda is billed for duration, memory usage and time invoked.
+AWS Lambda is billed for duration, memory usage and time invoked. Thus they should be used for short routine with predictable execution time.
+
+If Terraform takes long time to delete a resource (e.g. vpc, subnet), most likely there are some resources attached to it that is not managed by Terraform.
+- instance
+- security group
+- vpc endpoint
+
+
