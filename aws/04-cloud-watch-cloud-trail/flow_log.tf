@@ -1,5 +1,6 @@
 # depending on destination, some options are not available and required permission is also different
 
+// will monitor eni within the vpc
 resource "aws_flow_log" "vpc_flow_log" {
   vpc_id                   = module.vpc.vpc.id
   traffic_type             = "ALL"
