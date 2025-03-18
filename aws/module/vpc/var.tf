@@ -1,6 +1,6 @@
-variable "project" {
+variable "project_name" {
   type        = string
-  description = "The project number, e.g. 01, 13, 78"
+  description = "The project name, e.g. project-52"
 }
 
 variable "availability_zone" {
