@@ -78,6 +78,30 @@ monitor AWS platform event, metric, log
 
 The metric alarm is somewhat similar to Grafana or Splunk
 
+network resources (vpc, subnet, eni) -- flow_log --> cloudwatch log group / s3 / kinesis
+
+The ENI in the network resource would be monitored by cloudwatch and the eni will appear as log stream.
+
+You can search for logs in CloudWatch > Logs Insights
+
+This is what a v2 flow log looks like
+
+| Field                              | Value                     |
+|------------------------------------|---------------------------|
+| @entity.KeyAttributes.ResourceType | AWS::EC2::VPC             |
+| @entity.KeyAttributes.Type         | AWS::Resource             |
+| @entity.KeyAttributes.Identifier   | vpc-05c2f02afb634098c     |
+| @ingestionTime                     | 1742298783134             |
+| @log                               | 277707107708:traffic-logs |
+| @logStream                         | eni-0433dd2a8e212c162-all |
+| @message                           | (too long, removed)       |
+| @timestamp                         | 1742298707000             |
+| accountId                          | xxxx (removed)            |
+| end                                | 1742298769                |
+| interfaceId                        | eni-0433dd2a8e212c162     |
+| logStatus                          | NODATA                    |
+| start                              | 1742298707                |
+| version                            | 2                         |
 
 ### Resource Group
 
