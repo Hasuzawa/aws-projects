@@ -1,23 +1,34 @@
 ## Summary
 
+very simple provision for s3 & athena
+
+## Overview
+
+```mermaid
+---
+title: AWS Athena
+---
+erDiagram
+  Data-in-S3
+  S3-Bucket
+  S3-Table-Bucket
+  Table
+  Workgroup
+  Database
+
+  Workgroup || -- || S3-Bucket : saves-query-results-to
+  Workgroup || -- o| Database: connects-to
+  Database || -- o{ Table: owns
+  S3-Table-Bucket || -- o{ Table: stores
 ```
 
-api_gateway_rest_api
---> api_gateway_deployment
---> api_gateway_stage
+## S3 Table
 
+s3 table bucket does not share namespace with normal s3 bucket, i.e. you can have 2 buckets with same name, one in s3, one in s3 table.
 
-
--->
-
-```
+create database & table would result in a 0-byte txt file in s3, while selects, inserts etc. would result in a metadata and .csv file
 
 ## Amazon Athena
-
-S3 -> 
-S3 table bucket
--> s3tablescatalog/{ bucket_name }
--> s3 namespace (aka athena database)
 
 Athena resources (workgroup, database) does not allow hypen, only _ for symbols
 
@@ -44,8 +55,6 @@ TBLPROPERTIES ( 'table_type' = 'ICEBERG' );
 |----------|------------|----------------|
 | S3       | Athena     | Athena SQL     |
 | Dynamo   | RedShift   | PartiQL        |
-
-
 
 ## API Gateway
 
