@@ -12,12 +12,15 @@ erDiagram
   Data-in-S3
   S3-Bucket
   S3-Table-Bucket
-  Table
   Workgroup
+  Catalog
   Database
+  Table
 
   Workgroup || -- || S3-Bucket : saves-query-results-to
-  Workgroup || -- o| Database: connects-to
+  Workgroup || -- o{ Catalog : choose-a
+  Data-in-S3 o{ -- || Catalog : can-be-imported-to
+  Catalog || -- o| Database: connects-to
   Database || -- o{ Table: owns
   S3-Table-Bucket || -- o{ Table: stores
 ```
