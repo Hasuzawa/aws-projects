@@ -31,6 +31,12 @@ s3 table bucket does not share namespace with normal s3 bucket, i.e. you can hav
 
 create database & table would result in a 0-byte txt file in s3, while selects, inserts etc. would result in a metadata and .csv file
 
+deletion:
+```sh
+aws s3tables delete-table-bucket \
+  --table-bucket-arn arn:aws:s3tables:xxx
+```
+
 ## Amazon Athena
 
 Athena resources (workgroup, database) does not allow hypen, only _ for symbols
