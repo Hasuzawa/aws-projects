@@ -12,7 +12,7 @@ resource "aws_athena_workgroup" "dev" {
     bytes_scanned_cutoff_per_query = 10 * 1024 * 1024
 
     result_configuration {
-      output_location = "s3://${aws_s3_bucket.bucket.bucket}"
+      output_location = "s3://${aws_s3_bucket.bucket.bucket}/query-results/"	# the last / is needed
     }
   }
 }
