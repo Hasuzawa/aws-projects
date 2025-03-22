@@ -7,12 +7,16 @@ terraform {
   }
 }
 
+locals {
+  provider_tags = {
+    Managed = "terraform"
+    Project = var.project_name
+  }
+}
+
 provider "aws" {
   default_tags {
-    tags = {
-      Managed = "terraform"
-      Project = var.project_name
-    }
+    tags = local.provider_tags
   }
 }
 
@@ -22,10 +26,7 @@ provider "aws" {
   region = "us-west-1"
 
   default_tags {
-    tags = {
-      Managed = "terraform"
-      Project = var.project_name
-    }
+    tags = local.provider_tags
   }
 }
 
@@ -34,9 +35,6 @@ provider "aws" {
   region = "eu-central-1"
 
   default_tags {
-    tags = {
-      Managed = "terraform"
-      Project = var.project_name
-    }
+    tags = local.provider_tags
   }
 }
