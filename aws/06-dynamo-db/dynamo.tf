@@ -19,8 +19,13 @@ resource "aws_dynamodb_table" "student" {
   import_table {
     input_format = "CSV"
     s3_bucket_source {
-      bucket     = ""
+      bucket     = aws_s3_bucket.data.bucket
       key_prefix = ""
     }
+	input_format_options {
+	  csv {
+		delimiter = ","
+	  }
+	}
   }
 }
