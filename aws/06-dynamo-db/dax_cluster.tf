@@ -1,4 +1,4 @@
-# creating dax cluster is time-consuming
+# creating dax cluster is time-consuming (~10 minutes)
 resource "aws_dax_cluster" "dev" {
   cluster_name         = var.project_name
   iam_role_arn         = data.aws_iam_role.dynamo_db.arn
