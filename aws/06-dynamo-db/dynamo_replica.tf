@@ -8,13 +8,19 @@ resource "aws_dynamodb_table" "replicated_table" {
   }
 
   # using autoscaling for read & write
+  read_capacity    = 1
+  write_capacity   = 1
+  stream_enabled   = true # needed for replica
+  stream_view_type = "NEW_AND_OLD_IMAGES"
 
   lifecycle {
     ignore_changes = [
       read_capacity,
-      write_capacity
+      write_capacity,
+      replica
     ]
   }
+  provider = aws # it is recommended to explicity provide this for multi-region table
 }
 
 resource "aws_dynamodb_table_replica" "us" {
