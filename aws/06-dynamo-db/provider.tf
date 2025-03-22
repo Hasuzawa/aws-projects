@@ -15,3 +15,28 @@ provider "aws" {
     }
   }
 }
+
+# alternative providers for deploying resources in other regions
+provider "aws" {
+  alias  = "us"
+  region = "us-west-1"
+
+  default_tags {
+    tags = {
+      Managed = "terraform"
+      Project = var.project_name
+    }
+  }
+}
+
+provider "aws" {
+  alias  = "eu"
+  region = "eu-central-1"
+
+  default_tags {
+    tags = {
+      Managed = "terraform"
+      Project = var.project_name
+    }
+  }
+}
