@@ -8,4 +8,11 @@ Dyanomo table features
 - point in time recovery (for last 35 days)
 - backup
 
-DAX
+
+
+## DAX
+
+DAX (Dynamo Accelerator) is a managed caching layer.
+- cluster for distributed query
+- replication across subnets
+- parameter group to control eviction period of item and query
