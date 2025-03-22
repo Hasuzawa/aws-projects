@@ -25,7 +25,7 @@ arn:aws:dynamodb:ap-northeast-1:xxx:table/y
 ## Global table
 
 global tables allow multiple tables with same name in different region.
-updates to one table propogate to other tables.
+CRUD operations on any one table propogate to other tables.
 
 ## DAX
 
