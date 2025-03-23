@@ -1,7 +1,8 @@
 ## Introduction
 
-This is a repository to hold my personal projects on AWS.
+This is a repository to hold my personal mock projects to try out various services on AWS.
 
+Each project folder contains its own doc that highlight some features of the service.
 
 ## Note
 
