@@ -66,12 +66,13 @@ In S3 bucket versioning, you can choose to require MFA before deletion.
 
 ## Price
 
-Using data on 2025-03-13 Tokyo region,
+Using data on [official doc](https://aws.amazon.com/s3/pricing/) for 2025-03-13 Tokyo region,
 
 | Service                 | Price | Relative to S3 Standard |
 |-------------------------|-------|-------------------------|
 | S3 Standard             | 150   | 100%                    |
-| S3 Infruquent Access    | 82.8  | 55.2%                   |
+| S3 Standard IA          | 82.8  | 55.2%                   |
+| S3 One Zone IA          | 66    | 44%                     |
 | S3 Express One Zone     | 1080  | 720%                    |
 | S3 Glacier Instant      | 30    | 20%                     |
 | S3 Glacier Flexible     | 27    | 18%                     |
