@@ -29,3 +29,5 @@ The subnets where the db instance would be in, the subnets must belong to a sing
 ## Parameter Group
 
 Some parameters for log, profiler, tls
+
+You can only delete a parameter group is no cluster is using it.
