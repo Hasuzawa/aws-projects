@@ -28,20 +28,19 @@ locals {
 }
 
 resource "aws_sqs_queue" "dlq" {
-  name                 = "all-accepting-dead-letter-queue-${var.project_name}"
+  name                 = "all-accepting-dead-letter-queue"
   redrive_allow_policy = local.redriveAllowAll
 }
 
 resource "aws_sqs_queue" "not_dlq" {
-  name                 = "all-denying-dead-letter-queue-${var.project_name}"
+  name                 = "all-denying-dead-letter-queue"
   redrive_allow_policy = local.redriveDenyAll
 }
 
 resource "aws_sqs_queue" "send_to_dlq" {
-  name = "send-dlq"
+  name = "send-to-dlq"
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.dlq.arn
     maxReceiveCount     = 50
   })
 }
-
