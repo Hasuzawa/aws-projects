@@ -36,3 +36,12 @@ resource "aws_sqs_queue" "not_dlq" {
   name                 = "all-denying-dead-letter-queue-${var.project_name}"
   redrive_allow_policy = local.redriveDenyAll
 }
+
+resource "aws_sqs_queue" "send_to_dlq" {
+  name = "send-dlq"
+  redrive_policy = jsonencode({
+    deadLetterTargetArn = aws_sqs_queue.dlq.arn
+    maxReceiveCount     = 50
+  })
+}
+
