@@ -35,6 +35,8 @@ Once a message exceed the max receive count, it will be send to a DLQ if there i
 
 A DLQ of a fifo queue must also be fifo, same goes for standard queue.
 
+You can put the messages in DLQ back into a queue, but this could cause circular queues.
+
 ## SNS
 
 features
@@ -53,3 +55,7 @@ Success / Failure feedback downstream
 - lambda
 - sqs
 - firehose
+
+Note:
+- topic cannot be deleted when there is archive
+- archived message is deleted when archive policy is deactivated
