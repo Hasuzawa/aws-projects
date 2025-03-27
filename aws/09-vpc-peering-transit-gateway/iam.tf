@@ -1,5 +1,6 @@
 data "aws_iam_policy" "ssm_full_access" {
-  name = "AmazonSSMFullAccess"
+  #   name = "AmazonSSMFullAccess"
+  name = "AmazonSSMManagedInstanceCore"
 }
 
 # delegate permission to ec2
