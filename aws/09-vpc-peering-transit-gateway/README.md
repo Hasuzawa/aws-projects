@@ -1,6 +1,6 @@
 ## Summary
 
-
+Create 3 VPCs and pair them with transit gateway.
 
 ## Diagram
 
