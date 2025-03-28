@@ -50,3 +50,10 @@ resource "aws_launch_template" "customized" {
     # partition_number = 0 # only relevant for group strategy partition
   }
 }
+
+resource "aws_launch_template" "asg" {
+  name          = "asg-template"
+  description   = "this launch template can be used for autoscaling group"
+  instance_type = "" # not needed if all override specified instance type
+  image_id      = "ami-05506fa68391b4cb1"
+}
