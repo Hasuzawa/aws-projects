@@ -6,7 +6,7 @@ resource "aws_placement_group" "cluster" {
 resource "aws_placement_group" "partition" {
   name            = "demo-partition-group"
   strategy        = "partition"
-  partition_count = 3	# default is 2
+  partition_count = 3 # default is 2
 }
 
 resource "aws_placement_group" "spread" {

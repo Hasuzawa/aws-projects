@@ -3,12 +3,6 @@ resource "aws_launch_template" "zero" {
   description = "template with all default values"
 }
 
-resource "aws_launch_template" "t2micro" {
-  name          = "simple-t2-micro"
-  description   = "very simple setup"
-  instance_type = "t2.micro"
-}
-
 resource "aws_launch_template" "customized" {
   name          = "customized"
   description   = "highly customized template"
