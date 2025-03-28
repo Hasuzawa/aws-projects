@@ -34,8 +34,6 @@ spread
 ## Mixed Instances
 
 Instance weight
-- does NOT determine the proportion of each instance type launched (unlike CSS flex)
-
-## Some config
-
-min time between each adjustment
+- does NOT determine the proportion of each instance type launched (1-2-1 will not result in 25%, 50%, 25% deployment)
+- particularly useful when desire capacity is not count of instance but vcpu, memory etc.
+- for simple use case, can assign weight depending on vcpu, memory of instance type
