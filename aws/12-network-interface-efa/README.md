@@ -1,11 +1,10 @@
 ## Summary
 
-
+The network interface is the gateway of instance with network, which means its throughput, bandwidth and security is vital to the instance.
 
 ## Network Interface
 
-All ec2 instances need a network interface to communicate in network
-
+All ec2 instances need a network interface to communicate in network. The network interface and instance must be in the same AZ and subnet.
 
 ## Network Interface Type
 
@@ -14,7 +13,6 @@ not specifing a type would result in 'interface' type, which is also the default
 - efa-only
 - branch
 - trunk
-
 
 ## Device Index & Network Card Index
 
@@ -49,7 +47,14 @@ This is the ip info for an instance with more than one network interface.
        valid_lft forever preferred_lft forever
 ```
 
+the network latency between ec2 in the same subnet is about
+```sh
+20 packets transmitted, 20 received, 0% packet loss, time 19754ms
+rtt min/avg/max/mdev = 0.016/0.028/0.035/0.003 ms
+```
 
 ## Elastic Network Adapter
 
-low latency network interface for ec2 instances
+low latency network interface for ec2 instances.
+
+EFA-only interface cannot be used as primary network interface as it does not provide ip address, its usage is to speed up data transfer between instances.
