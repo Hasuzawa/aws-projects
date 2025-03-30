@@ -6,6 +6,6 @@ resource "aws_instance" "instance_1" {
   subnet_id     = aws_subnet.subnet.id
   private_ip    = cidrhost(aws_subnet.subnet.cidr_block, 7)
   tags = {
-    Name = "i-${var.project_name}-1"
+    Name = "ref-${var.project_name}"
   }
 }
