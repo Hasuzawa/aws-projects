@@ -25,7 +25,8 @@ resource "aws_route_table" "all_to_ngw" {
   }
 }
 
+# we only route one private subnet to NAT gateway, so only the instance-1 can access public internet
 resource "aws_route_table_association" "private" {
   route_table_id = aws_route_table.all_to_ngw.id
-  subnet_id      = aws_subnet.private[1].id
+  subnet_id      = aws_subnet.private[0].id
 }
