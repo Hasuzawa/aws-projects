@@ -1,5 +1,6 @@
 ## Summary
 
+Instance in public subnet & private subnet. Instance in private subnet can only access internet if route table direct it to a public NAT gateway (which is necessarily in public subnet).
 
 ## Route Table
 
