@@ -1,6 +1,6 @@
 ## Summary
 
-Instance with a non-root block volume and an instance store.
+Instance with a attached block volume and an instance store.
 
 ## EBS Volume
 
@@ -10,7 +10,7 @@ Only some volume type supports multi-attach, and only Nitro instances can be mul
 
 ## Instance Store
 
-temporary storage.
+Instance Store is ephemeral device for temporary storage. It is not a kind of volume.
 
 ## Attaching Volume
 
