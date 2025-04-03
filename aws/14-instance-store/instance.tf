@@ -16,9 +16,11 @@ resource "aws_instance" "instance_1" {
   ami           = "ami-05506fa68391b4cb1"
   instance_type = local.sharable_type
   subnet_id     = aws_subnet.subnet.id
-  #   ephemeral_block_device {
-  #     device_name = ""
-  #   }
+  # this is instance store
+  ephemeral_block_device {
+    device_name  = "/dev/sdd"
+    virtual_name = "ephemeral0"
+  }
   tags = {
     Name = "instance-shared-mount-0"
   }
@@ -28,9 +30,10 @@ resource "aws_instance" "instance_2" {
   ami           = "ami-05506fa68391b4cb1"
   instance_type = local.sharable_type
   subnet_id     = aws_subnet.subnet.id
-  #   ephemeral_block_device {
-  #     device_name = ""
-  #   }
+  ephemeral_block_device {
+    device_name  = "/dev/sdc"
+    virtual_name = "ephemeral2"
+  }
   tags = {
     Name = "instance-shared-mount-1"
   }
