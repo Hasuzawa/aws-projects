@@ -12,6 +12,8 @@ Only some volume type supports multi-attach, and only Nitro instances can be mul
 
 Instance Store is ephemeral device for temporary storage. It is not a kind of volume.
 
+Unlike volume, instance store cannot be multi-attached, nor can it be detached and attached to another instance. Its data is lost upon stop, hibernation.
+
 ## Attaching Volume
 
 To attach a volume to instance, a path and device name is needed.
