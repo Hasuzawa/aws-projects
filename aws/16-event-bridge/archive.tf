@@ -7,6 +7,7 @@ resource "aws_cloudwatch_event_archive" "archive" {
 
 resource "aws_cloudwatch_event_archive" "indefinite_retention" {
   name             = "indefinite-retention"
+  description      = "archive with indefinite retention"
   event_source_arn = aws_cloudwatch_event_bus.demo.arn
   retention_days   = 0 # 0 means archive forever
 }
@@ -20,6 +21,7 @@ resource "aws_cloudwatch_event_archive" "default_archive" {
 }
 
 locals {
+  # this would match all events
   event_pattern_all = jsonencode({
     "source" : [{
       "prefix" : ""
