@@ -12,3 +12,10 @@ resource "aws_cloudwatch_event_target" "send_console_event" {
   rule           = aws_cloudwatch_event_rule.console_events.name
   arn            = aws_sqs_queue.demo.arn
 }
+
+resource "aws_cloudwatch_event_target" "all_events" {
+  target_id      = "all-events"
+  event_bus_name = data.aws_cloudwatch_event_bus.default.name
+  rule           = aws_cloudwatch_event_rule.all_events.name
+  arn            = aws_sqs_queue.demo.arn
+}

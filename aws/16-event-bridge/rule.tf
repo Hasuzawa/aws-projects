@@ -18,6 +18,17 @@ resource "aws_cloudwatch_event_rule" "signin_events" {
   })
 }
 
+resource "aws_cloudwatch_event_rule" "all_events" {
+  name           = "all-events"
+  event_bus_name = data.aws_cloudwatch_event_bus.default.name
+  description    = "all events"
+  event_pattern = jsonencode({
+    source = [{
+      prefix = ""
+    }]
+  })
+}
+
 # resource "aws_cloudwatch_event_rule" "s3_events" {
 #   name           = "s3"
 #   event_bus_name = aws_cloudwatch_event_bus.demo.name
