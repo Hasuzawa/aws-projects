@@ -34,3 +34,15 @@ Replayed events have a field replay-name, you can filter this to prevent it from
 ```
 
 ## Schedule
+
+Schedule can emit events with cron expression.
+
+## Target
+
+targets are downstream receiver of matched event rule or schedule.
+- SQS
+- event bus
+- kinesis stream
+- ECS
+- sagemaker
+- SSM (can controll instances)
