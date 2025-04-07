@@ -4,15 +4,17 @@ EventBridge coordniates events sent from source and deliver to destination.
 
 ## Event Bridge
 
-
-
-EventBrdige is a regional service.
+Despite its broad scope, EventBrdige is a regional service.
 
 ## Bus
 
 Bus use rules to match events against event patterns, a match would be send to target of each rule.
 
-## Pipeline
+Each rule can has up to 5 targets.
+
+## Pipe
+
+Route event from a single source to single target, with optional filtering, enrichment.
 
 ## Schema
 
