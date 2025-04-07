@@ -7,7 +7,7 @@ data "aws_iam_policy_document" "trust" {
     ]
     principals {
       type        = "Service"
-      identifiers = ["pipes.amazonaws.com"]
+      identifiers = ["pipes.amazonaws.com", "scheduler.amazonaws.com"]
     }
   }
 }
