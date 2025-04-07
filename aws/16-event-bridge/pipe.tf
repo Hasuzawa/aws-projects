@@ -20,14 +20,42 @@ resource "aws_pipes_pipe" "plain" {
   }
 }
 
-# resource "aws_pipes_pipe" "with_richment" {
-#   name        = "pipe-with-richment"
-#   description = "pipe with richment parameters, as well as source and target parameters"
-#   role_arn    = aws_iam_role.sqs_full_access.arn
-#   source      = aws_sqs_queue.source.arn
-#   target      = aws_sqs_queue.destination.arn
+resource "aws_pipes_pipe" "with_richment" {
+  name        = "pipe-with-richment"
+  description = "pipe with richment parameters, as well as source and target parameters"
+  role_arn    = aws_iam_role.sqs_full_access.arn
+  source      = aws_sqs_queue.source.arn
+  target      = aws_sqs_queue.destination.arn
 
-#   enrichment_parameters {
+  # filter
+  source_parameters {
+    filter_criteria {
+      filter {
+        # this is a event pattern
+        pattern = jsonencode({
+          source = ["aws.s3"]
+        })
+      }
+    }
+  }
+  # enrichment
+  enrichment_parameters {
+    http_parameters {
+      header_parameters = {
+        "Cache-Control" = "no-cache,no-store"
+      }
+      path_parameter_values = ["v2"]
+      query_string_parameters = {
+        "sid" : "123456"
+        "view-id" : "789"
+      }
+    }
+  }
 
-#   }
-# }
+  target_parameters {
+    sqs_queue_parameters {
+      message_deduplication_id = "3"
+      message_group_id         = "4"
+    }
+  }
+}
