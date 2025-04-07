@@ -16,7 +16,27 @@ Each rule can has up to 5 targets.
 
 Route event from a single source to single target, with optional filtering, enrichment.
 
-## Schema
+It needs an execution role, similar to lambda.
+
+Data source
+- SQS
+- API Gateway
+- DynamoDB
+- Data Kinesis
+
+Destination
+- (all from data source)
+- event bus
+- batch job
+- lambda function
+- reshift
+- sagemaker
+
+Enrichment by
+- lambda
+- step functions
+- API gateway
+- API destination
 
 ## Archive
 
