@@ -5,7 +5,7 @@ Storage gateway is interface between an on-premise network and AWS cloud. It sup
 ## File Gateway
 
 ```
-client <---( NFS / SMB )--> storage gateway  <--------> S3 bucket
+client <---( NFS / SMB )---> storage gateway  <------> S3 bucket
 ```
 
 If you use the web console to configure it, by default the instance will have a 150GB /dev/sdb as cache block
@@ -15,7 +15,16 @@ When hosted on ec2, you can stop the instance to turn off the storage gateway an
 
 ## Volume Gateway
 
+```
+client <---( iSCSI )---> volume gateway <------> S3 bucket
+```
 
+types
+- cached volume
+  - data stored in AWS cloud, frequently accessed data cached at gateway.
+- stored volume
+  - data stored at client, asynchronous back-up to S3 via gateway.
+  - does not support ec2 instance hosting.
 
 ## Tap Gateway
 
@@ -25,6 +34,10 @@ When hosted on ec2, you can stop the instance to turn off the storage gateway an
 ## Hosting
 
 the gateway can be hosted with virtualization, ec2 instance, or a physical hardware.
+
+## Cost
+
+Most of the time, data transfer into AWS cloud incur no cost, but data ingress by storage gateway **will** incur a cost.
 
 ## Further
 
