@@ -12,7 +12,6 @@ If you use the web console to configure it, by default the instance will have a 
 
 When hosted on ec2, you can stop the instance to turn off the storage gateway and resume later.
 
-
 ## Volume Gateway
 
 ```
@@ -28,8 +27,17 @@ types
 
 ## Tap Gateway
 
+```
+client <---( iSCSI )---> tape gateway <------> S3 bucket
+```
 
+There are two default tape pool to store tapes
+- deep archive
+- flexible glacier
 
+the pools can have retention policy and retention day
+- governance (restricted)
+- compliance (cannot be bypassed by anyone)
 
 ## Hosting
 
