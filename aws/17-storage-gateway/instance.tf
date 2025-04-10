@@ -37,3 +37,14 @@ resource "aws_instance" "fgw_host" {
     Name = "file-gateway-host"
   }
 }
+
+resource "aws_instance" "vgw_host" {
+  ami                         = "ami-05506fa68391b4cb1"
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.subnet.id
+  associate_public_ip_address = true
+
+  tags = {
+    Name = "volume-gateway-host"
+  }
+}
