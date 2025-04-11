@@ -38,4 +38,9 @@ some combination of throughput and performance mode is not allowed
 
 ## Replication
 
-sync an EFS with content of another EFS, the destination must have replication protected turned off.
+sync an EFS with content of another EFS, the destination must have replication protection turned off.
+Replicated filesystem becomes read-only and get files from source.
+
+## Access Point
+
+access point can be used to restrict or move access of an EFS to a subdirectory.
