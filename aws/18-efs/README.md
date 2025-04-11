@@ -36,6 +36,8 @@ some combination of throughput and performance mode is not allowed
 - IA
 - archive
 
+accessed files can be put back to standard.
+
 ## Replication
 
 sync an EFS with content of another EFS, the destination must have replication protection turned off.
