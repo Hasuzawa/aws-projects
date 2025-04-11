@@ -2,15 +2,17 @@
 
 EFS is a network file system on AWS Cloud. It is bound to a VPC so it is a regional service.
 
+It supports tiered storage, similar to S3 bucket.
+
 ## Placement
 
 - regional
-- One Zone (only one AZ)
+- one zone (only one AZ)
 
 ## Performance & Throughput
 
 Performance mode of an EFS is how it handles workload.
-Throughput mode how EFS manage capacity for read and write.
+Throughput mode how EFS scales capacity for read and write.
 
 performance mode
 - general (recommended)
@@ -33,3 +35,7 @@ some combination of throughput and performance mode is not allowed
 
 - IA
 - archive
+
+## Replication
+
+sync an EFS with content of another EFS, the destination must have replication protected turned off.
