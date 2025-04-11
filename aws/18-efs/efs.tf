@@ -16,3 +16,19 @@ resource "aws_efs_file_system" "demo_0" {
     Name = "regional-efs"
   }
 }
+
+resource "aws_efs_file_system" "one_zone" {
+  availability_zone_name          = "ap-northeast-1a"
+  throughput_mode                 = "provisioned"
+  provisioned_throughput_in_mibps = 5
+  performance_mode                = "generalPurpose"
+  encrypted                       = true
+
+  protection {
+    replication_overwrite = "ENABLED" # enabled by default
+  }
+
+  tags = {
+    Name = "one-zone-efs"
+  }
+}
