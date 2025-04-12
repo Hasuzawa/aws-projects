@@ -43,6 +43,8 @@ accessed files can be put back to standard.
 sync an EFS with content of another EFS, the destination must have replication protection turned off.
 Replicated filesystem becomes read-only and get files from source.
 
+EFS replication can be across region and account, similar to S3.
+
 ## Access Point
 
 access point can be used to restrict or move access of an EFS to a subdirectory.
