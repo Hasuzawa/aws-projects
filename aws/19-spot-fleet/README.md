@@ -12,18 +12,15 @@ When you create a spot instance, you actually create a spot request to be fullfi
 
 ## Spot Request
 
-Cancelling a request does **not** termiante the associated instance.
-
 A one-time spot means a request that would be fulfilled at most once.
 
 A persistent spot means the request become open again after the instance is interrupted, and can be fulfilled again. Manually stopping an instance does not open the spot request.
 
+Cancelling a request does **not** termiante the associated instance.
+
 ## Spot Fleet
 
 AWS now recommends using ec2 fleet with spot options in an ASG instead.
-
-## Spot Instance lifecycle
-
 
 ## Terraform specific
 
