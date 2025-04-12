@@ -1,4 +1,4 @@
-resource "aws_efs_file_system" "demo_0" {
+resource "aws_efs_file_system" "regional" {
   throughput_mode  = "elastic"
   performance_mode = "generalPurpose"
 
