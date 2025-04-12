@@ -20,21 +20,16 @@ A persistent spot means the request become open again after the instance is inte
 
 ## Spot Fleet
 
-
+AWS now recommends using ec2 fleet with spot options in an ASG instead.
 
 ## Spot Instance lifecycle
 
 
 ## Terraform specific
 
-Creating a spot instance directly means creating a spot request that must be fulfilled when you apply. When deleting the resource, the spot request will be cancelled and the spot instance would be deleted.
+Creating a spot instance directly means creating a spot request that must be fulfilled when you apply. When deleting the resource, the spot request will be cancelled and the spot instance would be terminated.
 
-
-
-
-
-
-
+Although cancelling a spot request does not terminate associated instance, deleting a Terraform spot request resource will terminate associated instance.
 
 ## Further
 
