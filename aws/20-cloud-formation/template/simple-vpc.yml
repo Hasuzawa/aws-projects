@@ -1,0 +1,20 @@
+---
+Description: an intance in subnet and vpc
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 192.168.0.0/20
+  Subnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: ap-northeast-1c
+      CidrBlock: 192.168.3.0/24
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      SubnetId: !Ref Subnet
+      ImageId: ami-0b6e7ccaa7b93e898
+      InstanceType: t2.micro
+      PrivateIpAddress: 192.168.3.7
