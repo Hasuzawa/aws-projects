@@ -9,8 +9,8 @@ Parameters:
     MaxLength: 30
   Season:
     Description: Discrete value parameter
-    Type:
-    Defaut: Summer
+    Type: String
+    Default: Summer
     AllowedValues:
       - Spring
       - Summer
@@ -26,7 +26,7 @@ Parameters:
 Outputs:
   Val1:
     Description: An output value
-    Value: Coin
+    Value: !Ref Coin
     Export:
       Name: CoinCount
   Val2:
@@ -36,6 +36,7 @@ Resources:
   Queue:
     Type: AWS::SQS::Queue
     Properties:
+      QueueName: queue-by-cloudformation
       Tags:
         - Key: Name
           Value: by-cloud-formation
