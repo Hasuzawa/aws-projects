@@ -1,0 +1,9 @@
+---
+Description: using lifecycle policy on resource
+
+Resources:
+  Queue:
+    Type: AWS::SQS::Queue
+    CreationPolicy:
+    DeletionPolicy: Retain
+    UpdatePolicy:
