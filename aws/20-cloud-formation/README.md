@@ -5,7 +5,7 @@ It can be thought of as AWS's own version of Infrastructure as Code.
 
 features
 - stack, which is one deployment from template
-- stack set,
+- stack set, which is a blueprint to deploy stacks
 
 ## Template
 
@@ -21,11 +21,15 @@ A stack is created from a template.
 
 Stack events record the creation, deletion, rollback of resources.
 
+## Stack Set
+
+A Stack Set is a blueprint for deployment.
+
+CloudFormation is a regional service, so to deploy across region or account, Stack Set is preferred.
 
 ## Infrastructure Composer
 
 Graphical UI to drag and compose cloud resources.
-
 
 ## CloudFormation Template
 
@@ -68,6 +72,3 @@ UpdatePolicy
 ## Drift
 
 The resources might deviate from the cloud formation during operation. This is called drift.
-
-## Further
-
