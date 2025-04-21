@@ -13,8 +13,8 @@ resource "aws_apprunner_service" "nginx" {
   }
 
   instance_configuration {
-    cpu    = 1
-    memory = 2
+    cpu    = "1 vCPU"
+    memory = "2 GB" # can be in unit of MB or GB
   }
 
   health_check_configuration {
