@@ -3,12 +3,18 @@ resource "aws_apprunner_service" "nginx" {
 
   source_configuration {
     image_repository {
-      image_repository_type = "public.ecr.aws/nginx/nginx:latest"
-      image_identifier      = "ECR_PUBLIC"
+      image_repository_type = "ECR_PUBLIC"
+      image_identifier      = "public.ecr.aws/nginx/nginx:latest"
       image_configuration {
         port = 80
       }
     }
+    auto_deployments_enabled = false
+  }
+
+  instance_configuration {
+    cpu    = 1
+    memory = 2
   }
 
   health_check_configuration {
@@ -24,5 +30,9 @@ resource "aws_apprunner_service" "nginx" {
     ingress_configuration {
       is_publicly_accessible = true
     }
+  }
+
+  observability_configuration {
+    observability_enabled = false
   }
 }
