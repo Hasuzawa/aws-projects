@@ -6,6 +6,20 @@ In fact, AppRunner is perhaps the most convenient way to run one-container appli
 
 It is a regional service, but it is not available in all region (e.g. not in us-west-1)
 
+## Details
+
+- cannot use automatic deployment for public images
+
+## Connected Account
+
+Read repository to deploy application
+- GitHub
+- BitBucket
+
+## VPC connector & endpoint
+
+A VPC endpoint can be used to point to a AppRunner container.
+
 ## Cost
 
 |               | us    | jp    |
