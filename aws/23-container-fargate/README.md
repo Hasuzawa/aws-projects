@@ -21,7 +21,9 @@ A ECS cluster is a group of coordinated containers.
 
 ## Capacity Provider
 
-Capacity in ECS is how the containers are run
+Task can declare capacity mode it can run on, and cluster can run task using supported capacity provider.
+
+capacity providers
 - ec2 instance
 - fargate
 - on-premise
