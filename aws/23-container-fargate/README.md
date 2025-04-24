@@ -4,8 +4,7 @@ ECS Fargate is managed service for containers.
 
 
 ```
-Cluster ---> Service
-Task --->
+Cluster --(contain)--> Service --(use)--> Task --(spawn)--> container
 ```
 
 ## Details
@@ -53,6 +52,8 @@ The network mode needs a bit more words.
 The choice lies in how much control AWS is to have over the network, which matters when the infra is migrating into or away from AWS.
 
 Fargate must use awsvpc network mode, while ec2 instance can choose any modes.
+
+When using awsvpc mode, contains in the same task cannot share ports, i.e. cannot expose port 80 in more than one container, use environment to expose another port or use a LB to direct to different port.
 
 ## Further
 
