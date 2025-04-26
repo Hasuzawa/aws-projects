@@ -6,6 +6,7 @@ resource "aws_launch_template" "default" {
 }
 
 resource "aws_autoscaling_group" "singleton" {
+  name               = "singleton"
   min_size           = 1
   desired_capacity   = 1
   max_size           = 1
