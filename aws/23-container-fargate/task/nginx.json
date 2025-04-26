@@ -1,0 +1,15 @@
+[
+  {
+    "name": "nginx",
+    "image": "public.ecr.aws/nginx/nginx:latest",
+    "cpu": 512,
+    "memory": 1024,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      }
+    ]
+  }
+]
