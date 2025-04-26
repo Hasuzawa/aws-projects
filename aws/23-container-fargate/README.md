@@ -12,9 +12,6 @@ Cluster --(contain)--> Service --(use)--> Task --(spawn)--> container
 If you launch by ec2 instance, autoscaling would be done on instance level with ASG.
 If you use fargate, it is done at service level with capacity provider.
 
-Managed Draining
-- 
-
 ## Cluster
 
 A ECS cluster is a group of coordinated containers.
