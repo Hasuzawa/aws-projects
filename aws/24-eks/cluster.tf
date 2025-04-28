@@ -39,4 +39,12 @@ resource "aws_eks_cluster" "sample_2" {
   access_config {
     authentication_mode = "API_AND_CONFIG_MAP" # API mode required for remote network config
   }
+
+  zonal_shift_config {
+    enabled = true
+  }
+
+  upgrade_policy {
+    support_type = "STANDARD"
+  }
 }
