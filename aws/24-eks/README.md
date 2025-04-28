@@ -8,12 +8,14 @@ Cluster --> Note Group -->
 
 Both cluster and node needs a role.
 
+Unlike self-hosted Kubernetes, the control plane is in AWS-managed vpc and is not visible to users.
+
 ## Cluster
 
 features
 - scaling & update behavior
 - restrict placement of service, node, pod by cidr
-- zonal shift (HA at AZ level by failover to another AZ in same region)
+- zonal shift (done by ARC, HA at AZ level by failover to another AZ in same region)
 - runs on Outposts
 
 ## Node
@@ -23,4 +25,4 @@ features
 
 ## Cost
 
-Each kubernetes version has about an one-year period for standard support, then it will enter extended support, which cost much more.
+Cluster has a cost, even if no service is running inside. Standard support which lasts for about one year costs much less than extended support.
