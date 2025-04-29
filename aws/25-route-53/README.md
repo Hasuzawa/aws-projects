@@ -2,12 +2,23 @@
 
 Route 53 is the frontier for web traffic and a global service.
 
+## Domain Name
+
+a domain name can be purchased from AWS, or brought in from another registra.
+
+The price for different top level domain (TLD) varys, e.g. .jp might be more expensive than .com, .us
 
 ## Hosted Zone
 
 public
+- resovles DNS query in public internet
 
 private
+- resolves DNS query within one or more VPC
+- requires a vpc association at all time.
+
+## DNS records
+
 
 
 ## DNS Protocol
