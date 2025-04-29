@@ -4,7 +4,7 @@ Elastic Kubernetes Service (EKS) is a managed service for running kubernetes clu
 
 ```
 Cluster --> Node Group --> Node
-		--> Fargate
+        --> Fargate
 ```
 
 Both cluster and node needs a role.
