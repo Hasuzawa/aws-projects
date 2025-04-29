@@ -3,7 +3,8 @@
 Elastic Kubernetes Service (EKS) is a managed service for running kubernetes cluster on AWS.
 
 ```
-Cluster --> Note Group -->
+Cluster --> Node Group --> Node
+		--> Fargate
 ```
 
 Both cluster and node needs a role.
@@ -20,8 +21,9 @@ features
 
 ## Node
 
+A EKS node is a managed ec2 instance for hosting Kubernetes services.
 
-
+Alternatively, Fargate can be used so the underlying infrastructure is managed.
 
 ## Cost
 
