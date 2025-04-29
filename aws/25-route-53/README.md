@@ -15,10 +15,21 @@ public
 
 private
 - resolves DNS query within one or more VPC
-- requires a vpc association at all time.
+- requires a vpc association at all time
+- does not require the domain name to be registered
+
+A VPC can be associated with more than one hosted zone, but they must have different domain name.
+
+There is a soft cap of 500 hosted zones and 10_000 records per zone, beyond that contact or price is increased.
 
 ## DNS records
 
+NS
+SOA
+A
+AAAA
+Alias
+CNAME
 
 
 ## DNS Protocol
@@ -54,3 +65,6 @@ DNS query in cloud can be delegated to another DNS server, possibly out of cloud
 
 Another use case is to forward DNS query to a VPC in another account.
 
+## Cost
+
+0.50 / zone month for first 25 hosted zone, beyond that 0.10
