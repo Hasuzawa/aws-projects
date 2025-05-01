@@ -24,13 +24,23 @@ There is a soft cap of 500 hosted zones and 10_000 records per zone, beyond that
 
 ## DNS records
 
-NS
-SOA
-A
-AAAA
-Alias
-CNAME
+NS (name server), SOA (start of authority)
+- created by default, do not overwrite or remove without good reason
 
+A
+- resolves to ipv4 address
+
+AAAA
+- resolves to ipv6 address
+
+Alias
+- must have same record type (A, AAAA, CNAME etc) of target record
+- always have TTL of 60s
+- can be used route a DNS to AWS resources, e.g. ELB, CloudFront, S3, APIG
+- not charged
+
+CNAME
+- point to another record for non-apex zone
 
 ## DNS Protocol
 
@@ -68,3 +78,13 @@ Another use case is to forward DNS query to a VPC in another account.
 ## Cost
 
 0.50 / zone month for first 25 hosted zone, beyond that 0.10
+
+
+## Quota
+
+```shell
+aws route53 get-account-limit --type MAX_HOSTED_ZONES_BY_OWNER
+
+# type = MAX_RRSETS_BY_ZONE / MAX_VPCS_ASSOCIATED_BY_ZONE
+aws route53 get-hosted-zone-limit --hosted-zone-id $(id) --type $(type)
+```
