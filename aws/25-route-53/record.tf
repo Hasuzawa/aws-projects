@@ -49,3 +49,18 @@ resource "aws_route53_record" "toilet_2" {
     weight = 50
   }
 }
+
+# alias
+
+# alias wardrobe.home.com -> bedroom.home.com
+resource "aws_route53_record" "wardrobe" {
+  name    = "wardrobe"
+  type    = "CNAME" # this must be same as target record type
+  zone_id = aws_route53_zone.private.id
+
+  alias {
+    name                   = aws_route53_record.cname.fqdn
+    zone_id                = aws_route53_record.cname.zone_id
+    evaluate_target_health = true
+  }
+}
