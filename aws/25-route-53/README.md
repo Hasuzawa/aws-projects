@@ -79,7 +79,6 @@ Another use case is to forward DNS query to a VPC in another account.
 
 0.50 / zone month for first 25 hosted zone, beyond that 0.10
 
-
 ## Quota
 
 ```shell
